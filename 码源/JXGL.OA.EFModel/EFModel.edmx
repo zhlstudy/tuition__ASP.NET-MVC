@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JxglOADbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="RoleInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="16" />
+          <Property Name="DelFlag" Type="bit" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="32" />
+          <Property Name="ModfiedOn" Type="datetime" />
+          <Property Name="SubTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SysMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="text" Type="nvarchar" MaxLength="32" />
+          <Property Name="url" Type="nvarchar" MaxLength="50" />
+          <Property Name="iconCls" Type="nvarchar" MaxLength="32" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="IsMenu" Type="bit" />
+          <Property Name="HttpMethod" Type="nvarchar" MaxLength="16" />
+          <Property Name="DelFlag" Type="bit" />
+          <Property Name="ReMark" Type="nvarchar" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="10" />
+          <Property Name="UserGH" Type="nvarchar" MaxLength="10" />
+          <Property Name="UserPWD" Type="nvarchar" MaxLength="16" />
+          <Property Name="UserSex" Type="nvarchar" MaxLength="2" />
+          <Property Name="UserBM" Type="nvarchar" MaxLength="16" />
+          <Property Name="UserLevel" Type="nvarchar" MaxLength="10" />
+          <Property Name="DelFlag" Type="bit" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="32" />
+          <Property Name="ModfiedOn" Type="datetime" />
+          <Property Name="SubTime" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="JxglOADbModelStoreContainer">
+          <EntitySet Name="RoleInfo" EntityType="Self.RoleInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SysMenu" EntityType="Self.SysMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JxglOADbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="RoleInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="DelFlag" Type="Boolean" />
+          <Property Name="Remark" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="ModfiedOn" Type="DateTime" Precision="3" />
+          <Property Name="SubTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SysMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="text" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="iconCls" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsMenu" Type="Boolean" />
+          <Property Name="HttpMethod" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="DelFlag" Type="Boolean" />
+          <Property Name="ReMark" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UserGH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UserPWD" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="UserSex" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UserBM" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="UserLevel" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DelFlag" Type="Boolean" />
+          <Property Name="Remark" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="ModfiedOn" Type="DateTime" Precision="3" />
+          <Property Name="SubTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="JxglOADbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RoleInfo" EntityType="Self.RoleInfo" />
+          <EntitySet Name="SysMenu" EntityType="Self.SysMenu" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JxglOADbModelStoreContainer" CdmEntityContainer="JxglOADbEntities">
+          <EntitySetMapping Name="RoleInfo">
+            <EntityTypeMapping TypeName="JxglOADbModel.RoleInfo">
+              <MappingFragment StoreEntitySet="RoleInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ModfiedOn" ColumnName="ModfiedOn" />
+                <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysMenu">
+            <EntityTypeMapping TypeName="JxglOADbModel.SysMenu">
+              <MappingFragment StoreEntitySet="SysMenu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="iconCls" ColumnName="iconCls" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsMenu" ColumnName="IsMenu" />
+                <ScalarProperty Name="HttpMethod" ColumnName="HttpMethod" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+                <ScalarProperty Name="ReMark" ColumnName="ReMark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="JxglOADbModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserGH" ColumnName="UserGH" />
+                <ScalarProperty Name="UserPWD" ColumnName="UserPWD" />
+                <ScalarProperty Name="UserSex" ColumnName="UserSex" />
+                <ScalarProperty Name="UserBM" ColumnName="UserBM" />
+                <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ModfiedOn" ColumnName="ModfiedOn" />
+                <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

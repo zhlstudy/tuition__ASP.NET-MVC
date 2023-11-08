@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/EasyUI/jquery.easyui.min.js"></script>
+    <link href="~/Themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/Themes/icon.css" rel="stylesheet" />
+    <script src="~/Scripts/EasyUI/easyui-lang-zh_CN.js"></script>
+    <link href="~/font awesome/css/all.css" rel="stylesheet" />
+    <style>
+        html {
+            background-image: url(../../Themes/img/R-C.jpg);
+            background-repeat: no-repeat; /* 平铺 */
+            background-size: cover; /* 图片大小自适应 */
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .regform {
+            border-radius: 20px;
+            box-shadow: 2px 2px 6px #545463;
+            border: 5px double blue;
+            height: 440px;
+            padding-top: 35px;
+            width: 400px;
+            margin: auto;
+            margin-top: auto;
+            margin-top: 130px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        $(function () {
+            $('#btnSubimt').click(function () {
+                var pwd1 = $('#UserPWD').val();
+                var pwd2 = $('#userComPwd').val();
+                if (pwd1 == '' || pwd1 == undefined || pwd1 != pwd2) {
+                    $.messager.alert('提示', '两次输入的密码不同', 'warning');                   
+                }
+                formSubmit();
+            });
+            $('#btnCancel').click(function () {
+               
+                $.messager.alert('提示', '即将跳转登录界面！！请在登录界面输入账号密码登录！！', 'info', function () {
+                    window.location = '/UserLogin/Index'; return;
+                });
+                
+            })
+        })
+
+        function formSubmit() {
+            $('#regform').form('submit', {
+                url: "/UserReg/CreateUser",
+                method: "POST",
+                dataType: "Json",
+                queryParams: {
+                    UserName: $('#UserName').val(), UserPWD: $('#UserPWD').val(),
+                    UserGh: $('#UserGh').val(), UserSex: $('input[name="sex"]:checked').val(), 
+                    UserBM: $('#UserBM').val(), UserLevel: $('#UserLevel').val(),
+                    Remark: $('#Remark').val()
+                },
+                success: function (data) {
+                    var result = eval('(' + data + ')');
+                    if (result.Type == '1') {
+                        $.messager.alert("提示信息", result.Message, "warning", function () {
+                            window.location = '/UserLogin/Index'; return;
+                        });
+                       
+                    } else if (result.Type == '2') {
+                        $.messager.alert("提示信息", result.Message, "warning"); return;
+                    } else {
+                        $.messager.alert("提示", result.Message, "warning");
+                        return;
+                    }
+                }
+            })
+        }
+    </script>
+
+    <form class="regform" id="regform" name="regform" method="post" action="#">
+        <table align="center">
+            <tr>
+                <td colspan="2" align="center">用户注册</td>
+            </tr>
+            <tr>
+                <td>用&nbsp; 户&nbsp; 名：</td>
+                <td>
+                    <input id="UserName" type="text" name="UserName" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td>密 &nbsp; &nbsp; &nbsp;&nbsp;码：</td>
+                <td>
+                    <input id="UserPWD" type="password" name="UserPWD" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td>确认密码：</td>
+                <td><input id="userComPwd" type="password" name="confirmPassword" value="" /></td>
+            </tr>
+            <tr>
+                <td>性 &nbsp; &nbsp; &nbsp;&nbsp;别：</td>
+                <!--单选框，checked=“checked”设置默认选项-->
+                <td id="UserSex">
+                    <input  type="radio" name="sex" value="男" />男
+                    <input type="radio" name="sex" value="女" />女
+                </td>
+            </tr>
+            <tr>
+                <td>工 &nbsp; &nbsp; &nbsp;&nbsp;号：</td>
+                <td><input id="UserGh" name="UserGh"  data-options="required:true" /></td>
+            </tr>
+            <tr>
+                <td>部 &nbsp; &nbsp; &nbsp;&nbsp;门：</td>
+                <td><input id="UserBM" name="UserBM" @*class="easyui-textbox"*@ data-options="required:true" /></td>
+            </tr>
+            <tr>
+                <td>角 &nbsp; &nbsp; &nbsp;&nbsp;色：</td>
+                <td><input id="UserLevel" name="UserLevel" @*class="easyui-textbox"*@ data-options="required:true" /></td>
+            </tr>
+            <tr>
+                <td>注册日期：</td>
+                <td><input id="ModfiedOn" name="ModfiedOn" class="easyui-datebox" data-options="required:true" /></td>
+            </tr>
+
+            <tr>
+                <td>备 &nbsp; &nbsp; &nbsp;&nbsp;注：</td>
+                <td><input id="Remark" name="Remark" class="esayui-textbox" data-options="prompt:'备注一下!!',multiline:true,editable:true" style="width: 200px; height: 50px;" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <a class="easyui-linkbutton" id="btnSubimt" href="#" type="submit"><i class="fa-solid fa-rotate"></i>提 交</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="easyui-linkbutton"  id="btnCancel" href="#" type="submit"><i class="fa-solid fa-cannabis"></i>取 消</a>
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+
+</body>
+</html>

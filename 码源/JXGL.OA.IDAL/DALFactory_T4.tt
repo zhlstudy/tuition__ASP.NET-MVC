@@ -1,0 +1,29 @@
+﻿<#@ template language="C#" debug="false" hostspecific="true" #>
+<#@ include file="EF.Utility.CS.ttinclude" #>
+<#@ output extension=".cs" #>
+<#
+    const string inputFile=@"D:\\C#程序设计\\MyEFMVC-ADO\\JXGLOA\\JXGL.OA.EFModel\\EFModel.edmx";
+	MetadataLoader loader=new MetadataLoader(this);
+	EdmItemCollection itemCollection=loader.CreateEdmItemCollection(inputFile);
+#>
+using JXGL.OA.IIDAL;
+using System.Configuration;
+using System.Reflection;
+
+namespace JXGL.OA.EFDAL
+{
+      public partial class _DALFactory
+	  {
+	         public static string name = ConfigurationManager.AppSettings["DALssemblyName"];
+
+<#
+foreach(EntityType entity in itemCollection.GetItems<EntityType>().OrderBy(e=>e.Name))
+{
+#>
+	         public static I<#=entity.Name#>DAL Get<#=entity.Name#>DAL()
+	         {
+	               return Assembly.Load(name).CreateInstance(name + ".<#=entity.Name#>DAL") as I<#=entity.Name#>DAL;
+	         }
+<#}#>
+    }
+}

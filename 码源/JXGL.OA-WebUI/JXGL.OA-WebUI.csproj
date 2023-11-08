@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{82D3ABDB-DD26-4D9E-A33C-3F72B78791C3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JXGL.OA_WebUI</RootNamespace>
+    <AssemblyName>JXGL.OA-WebUI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RoleInfoController.cs" />
+    <Compile Include="Controllers\SysMenuController.cs" />
+    <Compile Include="Controllers\UserInfoController.cs" />
+    <Compile Include="Controllers\UserLoginController.cs" />
+    <Compile Include="Controllers\UserRegController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="font awesome\css\all.css" />
+    <Content Include="font awesome\css\all.min.css" />
+    <Content Include="font awesome\css\brands.css" />
+    <Content Include="font awesome\css\brands.min.css" />
+    <Content Include="font awesome\css\fontawesome.css" />
+    <Content Include="font awesome\css\fontawesome.min.css" />
+    <Content Include="font awesome\css\regular.css" />
+    <Content Include="font awesome\css\regular.min.css" />
+    <Content Include="font awesome\css\solid.css" />
+    <Content Include="font awesome\css\solid.min.css" />
+    <Content Include="font awesome\css\svg-with-js.css" />
+    <Content Include="font awesome\css\svg-with-js.min.css" />
+    <Content Include="font awesome\css\v4-font-face.css" />
+    <Content Include="font awesome\css\v4-font-face.min.css" />
+    <Content Include="font awesome\css\v4-shims.css" />
+    <Content Include="font awesome\css\v4-shims.min.css" />
+    <Content Include="font awesome\css\v5-font-face.css" />
+    <Content Include="font awesome\css\v5-font-face.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\EasyUI\easyui-lang-zh_CN.js" />
+    <Content Include="Scripts\EasyUI\jquery.easyui.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\MyScript\MyNavigate.js" />
+    <Content Include="Themes\default\easyui.css" />
+    <Content Include="Themes\default\images\accordion_arrows.png" />
+    <Content Include="Themes\default\images\blank.gif" />
+    <Content Include="Themes\default\images\calendar_arrows.png" />
+    <Content Include="Themes\default\images\combo_arrow.png" />
+    <Content Include="Themes\default\images\datagrid_icons.png" />
+    <Content Include="Themes\default\images\datebox_arrow.png" />
+    <Content Include="Themes\default\images\layout_arrows.png" />
+    <Content Include="Themes\default\images\linkbutton_bg.png" />
+    <Content Include="Themes\default\images\loading.gif" />
+    <Content Include="Themes\default\images\menu_arrows.png" />
+    <Content Include="Themes\default\images\messager_icons.png" />
+    <Content Include="Themes\default\images\messager_icons16.png" />
+    <Content Include="Themes\default\images\pagination_icons.png" />
+    <Content Include="Themes\default\images\panel_tools.png" />
+    <Content Include="Themes\default\images\passwordbox_close.png" />
+    <Content Include="Themes\default\images\passwordbox_open.png" />
+    <Content Include="Themes\default\images\searchbox_button.png" />
+    <Content Include="Themes\default\images\slider_handle.png" />
+    <Content Include="Themes\default\images\spinner_arrows.png" />
+    <Content Include="Themes\default\images\tabs_icons.png" />
+    <Content Include="Themes\default\images\tagbox_icons.png" />
+    <Content Include="Themes\default\images\tree_icons.png" />
+    <Content Include="Themes\default\images\validatebox_warning.png" />
+    <Content Include="Themes\icon.css" />
+    <Content Include="Themes\icons\back.png" />
+    <Content Include="Themes\icons\blank.gif" />
+    <Content Include="Themes\icons\cancel.png" />
+    <Content Include="Themes\icons\clear.png" />
+    <Content Include="Themes\icons\cut.png" />
+    <Content Include="Themes\icons\edit_add.png" />
+    <Content Include="Themes\icons\edit_remove.png" />
+    <Content Include="Themes\icons\filesave.png" />
+    <Content Include="Themes\icons\filter.png" />
+    <Content Include="Themes\icons\help.png" />
+    <Content Include="Themes\icons\large_chart.png" />
+    <Content Include="Themes\icons\large_clipart.png" />
+    <Content Include="Themes\icons\large_picture.png" />
+    <Content Include="Themes\icons\large_shapes.png" />
+    <Content Include="Themes\icons\large_smartart.png" />
+    <Content Include="Themes\icons\lock.png" />
+    <Content Include="Themes\icons\man.png" />
+    <Content Include="Themes\icons\mini_add.png" />
+    <Content Include="Themes\icons\mini_edit.png" />
+    <Content Include="Themes\icons\mini_refresh.png" />
+    <Content Include="Themes\icons\more.png" />
+    <Content Include="Themes\icons\no.png" />
+    <Content Include="Themes\icons\ok.png" />
+    <Content Include="Themes\icons\pencil.png" />
+    <Content Include="Themes\icons\print.png" />
+    <Content Include="Themes\icons\redo.png" />
+    <Content Include="Themes\icons\reload.png" />
+    <Content Include="Themes\icons\search.png" />
+    <Content Include="Themes\icons\sum.png" />
+    <Content Include="Themes\icons\tip.png" />
+    <Content Include="Themes\icons\undo.png" />
+    <Content Include="Themes\img\beij.jpg" />
+    <Content Include="Themes\img\R-C.jpg" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="font awesome\webfonts\fa-brands-400.ttf" />
+    <Content Include="font awesome\webfonts\fa-brands-400.woff2" />
+    <Content Include="font awesome\webfonts\fa-regular-400.ttf" />
+    <Content Include="font awesome\webfonts\fa-regular-400.woff2" />
+    <Content Include="font awesome\webfonts\fa-solid-900.ttf" />
+    <Content Include="font awesome\webfonts\fa-solid-900.woff2" />
+    <Content Include="font awesome\webfonts\fa-v4compatibility.ttf" />
+    <Content Include="font awesome\webfonts\fa-v4compatibility.woff2" />
+    <None Include="packages.config" />
+    <Content Include="Views\Home\Default.cshtml" />
+    <Content Include="Views\UserInfo\Index.cshtml" />
+    <Content Include="Views\SysMenu\Index.cshtml" />
+    <Content Include="Views\RoleInfo\Index.cshtml" />
+    <Content Include="Views\UserLogin\Index.cshtml" />
+    <Content Include="Views\UserReg\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JXGL.OA.BLL\JXGL.OA.BLL.csproj">
+      <Project>{56A0775C-E399-4C5E-A93E-20B7194F8DCE}</Project>
+      <Name>JXGL.OA.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JXGL.OA.Common\JXGL.OA.Common.csproj">
+      <Project>{64D89411-C8C5-4CE5-86E2-FB46113CCBE1}</Project>
+      <Name>JXGL.OA.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JXGL.OA.EFModel\JXGL.OA.EFModel.csproj">
+      <Project>{EA463F4F-C196-415D-8983-863962E51E8A}</Project>
+      <Name>JXGL.OA.EFModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JXGL.OA.IBLL\JXGL.OA.IBLL.csproj">
+      <Project>{9C35050A-041A-499D-B32E-72B1A328AC96}</Project>
+      <Name>JXGL.OA.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JXGL.OA.IDAL\JXGL.OA.EFDAL.csproj">
+      <Project>{F9C929AB-0D38-41B3-8DED-C3A8141F89F6}</Project>
+      <Name>JXGL.OA.EFDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58110</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58110/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

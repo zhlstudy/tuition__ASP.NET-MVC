@@ -1,0 +1,172 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AspNetMvc网站设计</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/EasyUI/jquery.easyui.min.js"></script>
+    <link href="~/Themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/Themes/icon.css" rel="stylesheet" />
+    <script src="~/Scripts/EasyUI/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript">
+        var rowNumber;
+        $(function () {
+            $("#myTb").datagrid({
+                url: "/SysMenu/GetPageSysMenuList",
+                fitColumns: true,
+                pagination: true,
+                pageList: [5, 10, 20],
+                method: "get",
+                datatype: "JSON",
+                striped: true,
+                singleSelect: false,
+                fit: true,
+                columns: [[
+                    { field: "ck", checkbox: true, align: "center", width: 30 },
+                    { field: "Id", title: "菜单Id", width: 60, align: "center", hidden: true },
+                    { field: "ParentId", title: "父Id", width: 60, align: "center", editor: { type: 'textbox', option: { require: true } } },
+                    { field: "text", title: "网页", width: 60, align: "center", editor: { type: 'textbox', option: { require: true } } },
+                    { field: "url", title: "网址", width: 60, align: "center", editor: { type: 'textbox', option: { require: true } } },
+                    { field: "iconCls", title: "图标", width: 60, align: "center", editor: { type: 'textbox', option: { require: true } } },
+                    { field: "Sort", title: "排序号", width: 60, align: "center", editor: { type: 'textbox', option: { require: true } } },
+
+                    { field: "HttpMethod", title: "Method", width: 60, align: "center", editor: { type: 'textbox', option: { require: true } } },
+                    { field: "DelFlag", title: "可用否", width: 60, align: "center" },
+                    { field: "IsMenu", title: "菜单否", width: 60, align: "center", editor: { type: 'textbox', option: { require: true } } },
+                    { field: "CreateTime", title: "创建日期", width: 60, align: "center", editor: { type: 'textbox', option: { require: true } } },
+
+                    { field: "ReMark", title: "备注", width: 100, align: "center", editor: { type: 'textbox', option: { require: true } } },
+                ]],
+                toolbar: [
+                    {
+                        text: '添加菜单', iconCls: 'icon-add', handler: function () {
+                            $('#myTb').datagrid('insertRow', { index: 0, row: {} });
+                            $('#myTb').datagrid('beginEdit', 0); rowNumber = 0;
+                        }
+                    }, '-',
+                    {
+                        text: '修改菜单', iconCls: 'icon-edit', handler: function () {
+                            var rows = $('#myTb').datagrid('getSelections');
+                            if (rows.length != 1) { $.messager.alert('提示', '请选择一行', 'info'); return }
+                            else { var row = rows[0]; rowNumber = $('#myTb').datagrid('getRowIndex', row); }
+                            $('#myTb').datagrid('beginEdit', rowNumber);
+                        }
+                    }, '-',
+
+                    {
+                        text: '撤销添加或修改', iconCls: 'icon-redo', handler: function () {
+                            rowNumber = undefined; $('#myTb').datagrid('rejectChanges');
+                        }
+                    }, '-',
+                    {
+                        text: '保存添加或修改', iconCls: 'icon-redo', handler: function () {
+                            $('#myTb').datagrid('endEdit', rowNumber);
+                        }
+                    }, '-',
+
+                    {
+                        text: '删除', iconCls: 'icon-remove', handler: function () {
+                            DeleteMenu(); return
+                        }
+                    }, '-',
+                ],
+                onAfterEdit: function (rowIndex, rowData, changes) {
+                    if (rowData.Id == undefined) { AddMenuInfo(rowIndex, rowData, changes); return; }
+                    else { UpdateMenuInfo(rowIndex, rowData, changes); return }
+                }
+            })
+
+            //日期格式转换
+            function changeDateFormat(cellval) {
+                if (cellval != null) {
+                    var date = new Date(parseInt(cellval.replace("/Date(", "").replace(")/", ""), 10));
+                    var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth + 1;
+                    var day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+                    return date.getFullYear() + "-" + month + "-" + day;
+                }
+            }
+
+            //添加菜单
+            function AddMenuInfo(rowIndex, rowData, changes) {
+                $.ajax({
+                    type: "post",
+                    url: "/SysMenu/Add",
+                    data: {
+                        //封装一个Menuinfo数据
+                        "ParentId": rowData.ParentId, "text": rowData.text, "url": rowData.url, "iconCls": rowData.iconCls
+                        , "Sort": rowData.Sort, "HttpMethod": rowData.HttpMethod, "ReMark": rowData.ReMark
+                    },
+                    success: function (result) {
+                        if (result = "Ok") {
+                            $("#myTb").datagrid("load").datagrid("unselectAll");
+                            $.messager.alert("提示", "菜单添加成功!", "info"); return;
+                        }
+                        else {
+                            $.messager.alert("提示", "菜单添加失败!", "info"); return;
+                        }
+                    }
+                })
+            }
+
+            //修改菜单
+            function UpdateMenuInfo(rowIndex, rowData, changes) {
+                $.ajax({
+                    type: "post",
+                    url: "/SysMenu/Edit",
+                    data: {
+                        //封装一个Menuinfo数据
+                        "Id": rowData.Id,
+                        "ParentId": rowData.ParentId, "text": rowData.text, "url": rowData.url, "iconCls": rowData.iconCls
+                        , "Sort": rowData.Sort, "HttpMethod": rowData.HttpMethod, "ReMark": rowData.ReMark
+                    },
+                    success: function (result) {
+                        if (result = "Ok") {
+                            $('#myTb').datagrid("load").datagrid('unselectAll');
+                            $.messager.alert('提示', '菜单修改成功', 'info'); return
+                        }
+                        else { $.messager.alert('提示', '菜单修改失败', 'info'); return }
+                    }
+                })
+            }
+
+            //删除菜单
+            function DeleteMenu() {
+                //先获取页面上要删除菜单的信息
+                var rows = $("#myTb").datagrid("getSelections");
+                if (rows.length != 1) {
+                    $("#myTb").datagrid("clearSelections");
+                    rows = null
+                    $.messager.alert("提示", "请选择一行!", "info")
+                }
+                $.messager.confirm("提示", "确定要删除<-" + rows[0]["MenuName"] + "->菜单吗", function (r) {
+                    if (r) {
+                        $.ajax({
+                            type: "post",
+                            url: "/SysMenu/Delete",
+                            data: { "Id": rows[0]["Id"] },
+
+                            success: function (result) {
+                                if (result = 'Ok') {
+                                    $("#myTb").datagrid("load").datagrid("unselectAll");
+                                    $.messager.alert("提示", "菜单删除成功!", "info"); return;
+
+                                }
+                                else {
+                                    $.messager.alert("提示", "菜单删除失败!", "info"); return;
+                                }
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    </script>
+</head>
+<body>
+    <div id="myTb">
+        使用Mvc网站设计架构,实现对SysMenu表的增删改查操作
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,6 @@
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.Common\bin\Debug\JXGL.OA.Common.dll
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.Common\bin\Debug\JXGL.OA.Common.pdb
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.Common\obj\Debug\JXGL.OA.Common.csproj.CoreCompileInputs.cache
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.Common\obj\Debug\JXGL.OA.Common.dll
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.Common\obj\Debug\JXGL.OA.Common.pdb
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.Common\obj\Debug\JXGL.OA.Common.csproj.AssemblyReference.cache

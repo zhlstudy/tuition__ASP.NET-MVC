@@ -1,0 +1,43 @@
+﻿<#@ template language="C#" debug="false" hostspecific="true" #>
+<#@ include file="EF6.Utility.CS.ttinclude" #>
+<#@ output extension=".cs" #>
+<#
+    const string inputFile=@"D:\\C#程序设计\\MyEFMVC-ADO\\JXGLOA\\JXGL.OA.EFModel\\EFModel.edmx";
+	var textTransform = DynamicTextTransformation.Create(this);
+	var fileManager = EntityFrameworkTemplateFileManager.Create(this);
+	EdmMetadataLoader loader=new EdmMetadataLoader(textTransform.Host,textTransform.Errors);
+	EdmItemCollection itemCollection=(EdmItemCollection)loader.CreateEdmItemCollection(inputFile);
+
+	foreach(EntityType entity in itemCollection.GetItems<EntityType>().OrderBy(e=>e.Name))
+	{
+	     fileManager.StartNewFile("_I" + entity.Name + "DAL.cs");
+#>
+<# //代码片段开始 #>
+using JXGL.OA.EFModel;
+using JXGL.OA.IIDAL;
+
+namespace JXGL.OA.EFDAL
+{
+      public partial interface _I<#=entity.Name#>DAL : IBaseDAL<<#=entity.Name#>>
+	  {
+	      //说明:
+		  //    1.请将对本实体表所需要的扩展方法添加在<#=entity.Name#>DAL，类中;
+		  //    2.<#=entity.Name#>DAL 和 _<#=entity.Name#>DAL 都要添加 partial 修饰符;
+	  }
+}
+<# //代码片段结束 #>
+
+<# 
+      fileManager.EndBlock();
+	  }
+	  fileManager.Process();
+#>
+<#+
+public static void ArgumentNotNull<T>(T arg, string name) where T : class 
+{
+      if(arg == null)
+	  {
+	      throw new ArgumentNullException(name);
+	  }
+}
+#>

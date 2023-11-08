@@ -1,0 +1,25 @@
+﻿<#@ template language="C#" debug="false" hostspecific="true" #>
+<#@ include file="EF.Utility.CS.ttinclude" #>
+<#@ output extension=".cs" #>
+<#
+    const string inputFile=@"D:\\C#程序设计\\MyEFMVC-ADO\\JXGLOA\\JXGL.OA.EFModel\\EFModel.edmx";
+	MetadataLoader loader=new MetadataLoader(this);
+	EdmItemCollection itemCollection=loader.CreateEdmItemCollection(inputFile);
+#>
+using JXGL.OA.IIDAL;
+
+namespace JXGL.OA.EFDAL
+{
+      public partial interface _IDbSession
+	  {
+	         
+<#
+foreach(EntityType entity in itemCollection.GetItems<EntityType>().OrderBy(e=>e.Name))
+{
+#> 
+	          I<#=entity.Name#>DAL Get<#=entity.Name#>DAL { get; }
+<#}#>
+              int SaveChanges();
+
+	}
+}

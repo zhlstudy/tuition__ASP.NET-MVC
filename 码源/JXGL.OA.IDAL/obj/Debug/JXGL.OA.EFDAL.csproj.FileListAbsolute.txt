@@ -1,0 +1,12 @@
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.IDAL\bin\Debug\JXGL.OA.EFModel.dll
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.IDAL\bin\Debug\JXGL.OA.EFModel.pdb
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.IDAL\bin\Debug\JXGL.OA.EFModel.dll.config
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.IDAL\obj\Debug\JXGL.OA.EFDAL.csproj.CoreCompileInputs.cache
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.IDAL\obj\Debug\JXGL.OA.EFDAL.csproj.CopyComplete
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.IDAL\bin\Debug\JXGL.OA.IIDAL.dll
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.IDAL\bin\Debug\JXGL.OA.IIDAL.pdb
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.IDAL\bin\Debug\JXGL.OA.EFDAL.dll
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.IDAL\bin\Debug\JXGL.OA.EFDAL.pdb
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.IDAL\obj\Debug\JXGL.OA.EFDAL.dll
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.IDAL\obj\Debug\JXGL.OA.EFDAL.pdb
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.IDAL\obj\Debug\JXGL.OA.EFDAL.csproj.AssemblyReference.cache

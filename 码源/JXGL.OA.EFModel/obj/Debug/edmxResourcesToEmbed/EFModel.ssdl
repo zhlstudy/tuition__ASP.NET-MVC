@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JxglOADbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="RoleInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="16" />
+    <Property Name="DelFlag" Type="bit" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="32" />
+    <Property Name="ModfiedOn" Type="datetime" />
+    <Property Name="SubTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SysMenu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="text" Type="nvarchar" MaxLength="32" />
+    <Property Name="url" Type="nvarchar" MaxLength="50" />
+    <Property Name="iconCls" Type="nvarchar" MaxLength="32" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="IsMenu" Type="bit" />
+    <Property Name="HttpMethod" Type="nvarchar" MaxLength="16" />
+    <Property Name="DelFlag" Type="bit" />
+    <Property Name="ReMark" Type="nvarchar" MaxLength="16" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="10" />
+    <Property Name="UserGH" Type="nvarchar" MaxLength="10" />
+    <Property Name="UserPWD" Type="nvarchar" MaxLength="16" />
+    <Property Name="UserSex" Type="nvarchar" MaxLength="2" />
+    <Property Name="UserBM" Type="nvarchar" MaxLength="16" />
+    <Property Name="UserLevel" Type="nvarchar" MaxLength="10" />
+    <Property Name="DelFlag" Type="bit" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="32" />
+    <Property Name="ModfiedOn" Type="datetime" />
+    <Property Name="SubTime" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="JxglOADbModelStoreContainer">
+    <EntitySet Name="RoleInfo" EntityType="Self.RoleInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysMenu" EntityType="Self.SysMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JxglOADbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="RoleInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="DelFlag" Type="Boolean" />
+    <Property Name="Remark" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="ModfiedOn" Type="DateTime" Precision="3" />
+    <Property Name="SubTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SysMenu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="text" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="iconCls" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Sort" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="IsMenu" Type="Boolean" />
+    <Property Name="HttpMethod" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="DelFlag" Type="Boolean" />
+    <Property Name="ReMark" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="UserGH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="UserPWD" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="UserSex" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="UserBM" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="UserLevel" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DelFlag" Type="Boolean" />
+    <Property Name="Remark" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="ModfiedOn" Type="DateTime" Precision="3" />
+    <Property Name="SubTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="JxglOADbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="RoleInfo" EntityType="Self.RoleInfo" />
+    <EntitySet Name="SysMenu" EntityType="Self.SysMenu" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+  </EntityContainer>
+</Schema>

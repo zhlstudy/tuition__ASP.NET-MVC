@@ -1,0 +1,13 @@
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.EFModel\bin\Debug\JXGL.OA.EFModel.dll.config
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.EFModel\bin\Debug\JXGL.OA.EFModel.dll
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.EFModel\bin\Debug\JXGL.OA.EFModel.pdb
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.EFModel\bin\Debug\EntityFramework.dll
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.EFModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.EFModel\bin\Debug\EntityFramework.xml
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.EFModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.EFModel\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.EFModel\obj\Debug\JXGL.OA.EFModel.csproj.CoreCompileInputs.cache
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.EFModel\obj\Debug\JXGL.OA.EFModel.csproj.CopyComplete
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.EFModel\obj\Debug\JXGL.OA.EFModel.dll
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.EFModel\obj\Debug\JXGL.OA.EFModel.pdb
+D:\C#程序设计\MyEFMVC-ADO\JXGLOA\JXGL.OA.EFModel\obj\Debug\JXGL.OA.EFModel.csproj.AssemblyReference.cache

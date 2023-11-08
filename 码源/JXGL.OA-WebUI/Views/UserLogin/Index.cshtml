@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/EasyUI/jquery.easyui.min.js"></script>
+    <link href="~/Themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/Themes/icon.css" rel="stylesheet" />
+    <script src="~/Scripts/EasyUI/easyui-lang-zh_CN.js"></script>
+    <link href="~/font awesome/css/all.css" rel="stylesheet" />
+    <link href="~/Themes/default/easyui.css" rel="stylesheet" />
+    <style>
+        html {
+            background-image: url(../../Themes/img/beij.jpg);
+            background-repeat: no-repeat; /* 平铺 */
+            background-size: cover; /* 图片大小自适应 */
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .LoginFrom {
+            box-shadow:2px 2px 6px #545463;
+            border-radius: 20px;
+            border: 5px double blue;
+            width: 350px;
+            height: 400px;
+            padding-top: 70px;
+            margin: auto;
+        }
+    </style>
+    <script>
+        $(function () {
+            $('#btnRegist').click(function () {
+                window.location = "/UserReg/Index";
+            });
+            $('#btnSubimt').click(function () {
+                formSubmit();
+            });
+
+
+        })
+
+        function formSubmit() {
+            $.ajax({
+                url: "/UserLogin/Login",
+                method: "POST",
+                dataType: "Json",
+                data: {
+                    UserName: $('#UserName').val(),
+                    Password: $('#Password').val(),
+                    Code: $('#Code').val()
+                },
+                success: function (result) {
+                    if (result.Type == 0) {
+                        $.messager.alert("提示信息", "请输入完整信息!!!", "warning");
+                        changecode();
+                        return;
+                    } else if (result.Type == 1) {
+                        $.messager.alert("提示信息", "验证码错误!", "warning");
+                        changecode();
+                        return;
+
+                    } else if (result.Type == 2) {
+                        $.messager.alert("提示", "用户名或密码错误错误!", "warning");
+                        changecode();
+                        return;
+                    } else {
+                        $.messager.alert("提示", result.Message, "warning");
+                        window.location = "/Home/Default";
+                    }
+                }
+
+            });
+
+        }
+        function changecode() {
+            var str = new Date().getSeconds + new Date().getMinutes + new Date().getDate;
+            $('#verifycode').attr('src', '/UserLogin/ShowVerifyCode?t=' + str/*new Date().getSeconds()*/);
+            return true;
+        }
+    </script>
+
+</head>
+<body style="text-align:center">
+        <div style="margin-top:130px">
+            <form class="LoginFrom" id="LoginFrom" name="LoginFrom" action="#" method="post">
+                <div>
+                    <p>
+                        <label>用户名：</label>
+                        <input id="UserName" />
+                    </p>
+                </div>
+                <div >
+                    <p>
+                        <label>密&nbsp;  &nbsp;码：</label>
+                        <input id="Password" />
+                    </p>
+                </div>
+                <div >
+                    <p>
+                        <label>验证码：</label>
+                        <input id="Code" type="text" />
+                    </p>
+                </div>
+                <div>
+                    <img id="verifycode" title="更换验证码" style="height: 36px;
+                    width: 108px;
+                    margin-left: -15px;
+                    margin-top: -8px;
+                    cursor: pointer;" src="@Url.Action("ShowVerifyCode")" onclick="changecode();" />
+                </div>
+
+                <div style="margin-top:20px">
+                            <a class="easyui-linkbutton" id="btnSubimt" href="#" type="submit" ><i class="fa-solid fa-user"></i>登 录</i></a>
+                            <a class="easyui-linkbutton"  id="btnRegist" href="#" type="submit" ><i class="fa-brands fa-react"></i>注 册</a>
+                </div>
+            </form>
+
+        </div>
+
+    </body>
+</html>
